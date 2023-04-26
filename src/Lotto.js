@@ -54,7 +54,7 @@ function Lotto() {
       </div>
       <div className='header__logo'>
       <button className="lotto-button1">
-  <img style={{ backgroundColor: 'transparent' }} src="https://yt3.googleusercontent.com/ytc/AGIKgqP-H0waolKlrxysnALgv_SX58bciXjKHR6JqnQ-Ng=s900-c-k-c0x00ffffff-no-rj" alt="National Lottery" width="100" height="100" />
+  <img className="blue-background" src="https://yt3.googleusercontent.com/ytc/AGIKgqP-H0waolKlrxysnALgv_SX58bciXjKHR6JqnQ-Ng=s900-c-k-c0x00ffffff-no-rj" alt="National Lottery" width="100" height="100" />
   <h1 className='daily-lotto1'>Daily Lotto</h1>
 </button>
 <button className="lotto-button2">
@@ -70,11 +70,27 @@ function Lotto() {
   <h1 className='daily-lotto4'>SPORTSTAKE13</h1>
 </button>
         </div>
-      <h2>LOTTO</h2>
+        <div className='Lotto-heading'>
+        <h2>LOTTO</h2>
+        <label>
+        YOU HAVE SELECTED TO PLAY LOTTO
+        </label>
+        <div className='Lotto-heading1'>
+        <button type="button" className='Instructions'>
+        <label>HOW TO PLAY?</label>
+        </button>
+        <button className='Results'>
+        <label>Results</label>
+        </button>
+        </div>
+        
+        </div>
+      
       <div className="selections">
-        <h3>Select number of draws:</h3>
-        <input type="range" min="1" max="10" value={numRows} onChange={handleNumRowsChange} />
-        <span>{numRows}</span>
+        <h3>Select number of draws: </h3>
+        <input className='Slider' type="range" h4 min="1" max="10" value={numRows} onChange={handleNumRowsChange} />
+        <label className= 'NoDraws'>  No Draws:</label>
+        <span> {numRows}</span>
       </div>
       <div className="selections">
         <h3>Selections:</h3>

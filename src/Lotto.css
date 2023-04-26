@@ -145,7 +145,7 @@
   }
   
   .selected:before {
-    content: "";
+    /* content: ""; */
     display: block;
     width: 30px;
     height: 30px;
@@ -275,4 +275,31 @@
 
 img {
   background-color: transparent;
+}
+
+.Slider{
+  margin-left: 180px;
+}
+
+.Results{
+    margin-left: 13px;
+    color: rgb(33, 37, 41);
+    background-color: rgb(248, 249, 250);
+    border-color: rgb(0, 1, 2);
+    height: 35px;
+    width: 118px;
+    border-radius: 10%;
+}
+
+.Instructions{
+  margin-left: 13px;
+  color: rgb(33, 37, 41);
+  background-color: rgb(248, 249, 250);
+  border-color: rgb(0, 1, 2);
+  height: 35px;
+  border-radius: 10%;
+}
+
+.Lotto-heading1{
+  padding-top: 1%;
 }
