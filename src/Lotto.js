@@ -52,25 +52,25 @@ function Lotto() {
           <h1>National Lottery - Lotto</h1>
         </div>
       </div>
-      <div className='lotto-buttons'>
+      <div className='header__logo'>
       <button className="lotto-button1">
-         <img src="https://yt3.googleusercontent.com/ytc/AGIKgqP-H0waolKlrxysnALgv_SX58bciXjKHR6JqnQ-Ng=s900-c-k-c0x00ffffff-no-rj" alt="National Lottery" width="100" height="100" />
-          <h1 className='daily-lotto'>Daily Lotto</h1>
-         </button>
-         <button className="lotto-button2">
-         <img src="https://yt3.googleusercontent.com/ytc/AGIKgqP-H0waolKlrxysnALgv_SX58bciXjKHR6JqnQ-Ng=s900-c-k-c0x00ffffff-no-rj" alt="National Lottery" width="100" height="100" />
-          <h1 className='daily-lotto'>Powerball</h1>
-         </button>
-         <button className="lotto-button3">
-         <img src="https://yt3.googleusercontent.com/ytc/AGIKgqP-H0waolKlrxysnALgv_SX58bciXjKHR6JqnQ-Ng=s900-c-k-c0x00ffffff-no-rj" alt="National Lottery" width="100" height="100" />
-          <h1 className='daily-lotto'>SPORTSTAKE 8</h1>
-         </button>
-         <button className="lotto-button4">
-         <img src="https://yt3.googleusercontent.com/ytc/AGIKgqP-H0waolKlrxysnALgv_SX58bciXjKHR6JqnQ-Ng=s900-c-k-c0x00ffffff-no-rj" alt="National Lottery" width="100" height="100" />
-          <h1 className='daily-lotto'>SPORTSTAKE 13</h1>
-         </button>
+  <img style={{ backgroundColor: 'transparent' }} src="https://yt3.googleusercontent.com/ytc/AGIKgqP-H0waolKlrxysnALgv_SX58bciXjKHR6JqnQ-Ng=s900-c-k-c0x00ffffff-no-rj" alt="National Lottery" width="100" height="100" />
+  <h1 className='daily-lotto1'>Daily Lotto</h1>
+</button>
+<button className="lotto-button2">
+  <img style={{ backgroundColor: 'transparent' }} src="https://yt3.googleusercontent.com/ytc/AGIKgqP-H0waolKlrxysnALgv_SX58bciXjKHR6JqnQ-Ng=s900-c-k-c0x00ffffff-no-rj" alt="National Lottery" width="100" height="100" />
+  <h1 className='daily-lotto2'>Powerball</h1>
+</button>
+<button className="lotto-button3">
+  <img style={{ backgroundColor: 'transparent' }} src="https://yt3.googleusercontent.com/ytc/AGIKgqP-H0waolKlrxysnALgv_SX58bciXjKHR6JqnQ-Ng=s900-c-k-c0x00ffffff-no-rj" alt="National Lottery" width="100" height="100" />
+  <h1 className='daily-lotto3'>SPORTSTAKE8</h1>
+</button>
+<button className="lotto-button4">  
+  <img style={{ backgroundColor: 'transparent' }} src="https://yt3.googleusercontent.com/ytc/AGIKgqP-H0waolKlrxysnALgv_SX58bciXjKHR6JqnQ-Ng=s900-c-k-c0x00ffffff-no-rj" alt="National Lottery" width="100" height="100" />
+  <h1 className='daily-lotto4'>SPORTSTAKE13</h1>
+</button>
         </div>
-      <h2>Lotto</h2>
+      <h2>LOTTO</h2>
       <div className="selections">
         <h3>Select number of draws:</h3>
         <input type="range" min="1" max="10" value={numRows} onChange={handleNumRowsChange} />

@@ -225,6 +225,54 @@
   color: red;
 }
 
-.daily-lotto{
+.daily-lotto2{
   color: black;
+}
+
+.daily-lotto3{
+  color: black;
+}
+
+.daily-lotto4{
+  color: black;
+}
+
+.daily-lotto1{
+  color: black;
+}
+
+.lotto-button1{
+  background-color: red;
+  border-radius: 8%;
+}
+
+.lotto-button2{
+  background-color: rgb(67, 194, 245);
+  margin-left: 0.5%;
+  border-radius: 8%;
+}
+
+.lotto-button3{
+  background-color: #1cbb64;
+  margin-left: 0.5%;
+  border-radius: 8%;
+}
+
+.lotto-button4{
+  background-color: #1cbb64;
+  margin-left: 0.5%;
+  border-radius: 8%;
+}
+
+.header__logo{
+    width: 44%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+img {
+  background-color: transparent;
 }
