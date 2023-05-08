@@ -179,6 +179,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    
   }
   
   .slider-label {
@@ -189,6 +190,9 @@
   .slider {
     width: 70%;
     margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 22px;
+
   }
   
   .selection-container {
@@ -668,18 +672,24 @@ img {
   display: block;
   width: 18px;
   margin: 6px;
-  background: #fff;
+  background: #e9ec0b;
   position: absolute;
   top: 0;
   bottom: 0;
   right: 56px;
   border: 2px solid #999;
   border-radius: 20px;
-  transition: all .3s ease-in 0s;
+  /* transition: all .3s ease-in 0s; */
+  transition: all 0.3s ease-in-out;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: -50px;
 }
 
 .mb-5{
   width: 90px;
+
 }
 
 .betslip__cont {
@@ -720,3 +730,36 @@ img {
 .ballsList.lotto>.ball.ball01.active>.shape, .ballsList.lotto>.ball.ball02.active>.shape, .ballsList.lotto>.ball.ball03.active>.shape, .ballsList.lotto>.ball.ball04.active>.shape, .ballsList.lotto>.ball.ball05.active>.shape, .ballsList.lotto>.ball.ball06.active>.shape, .ballsList.lotto>.ball.ball07.active>.shape, .ballsList.lotto>.ball.ball08.active>.shape, .ballsList.lotto>.ball.ball09.active>.shape, .ballsList.lotto>.ball.ball10.active>.shape, .ballsList.lotto>.ball.ball11.active>.shape, .ballsList.lotto>.ball.ball12.active>.shape, .ballsList.lotto>.ball.ball13.active>.shape, .ballsList>.ball.red>.shape {
   background-color: #b9282f;
 }
+
+.lottobet{
+  display: none;
+}
+
+.ball {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  border-radius: 50%;
+  background-color: #ddd;
+  color: #000; /* black text color */
+  line-height: 30px;
+  text-align: center;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4); /* add shadow */
+}
+
+.ballsList>.ball:after {
+  content: '';
+  display: block;
+  width: 26px;
+  height: 3px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -13px;
+  margin-top: -1px;
+  background-color: #b9b9b9;
+  border-radius: 50%;
+  z-index: -1;
+}
+                                              

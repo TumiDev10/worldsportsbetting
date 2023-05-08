@@ -131,7 +131,7 @@
 //   </div>
 // </div>
 // <div className="footer1">
-//        <p>Cost of tickets: R{tickets.length * 7.50}</p>
+//        <p>cost of tickets: R{tickets.length * 7.50}</p>
 //        </div>
 // <div className="footer">
 //       <button>Buy tickets</button>
@@ -222,92 +222,90 @@ function Lotto() {
   }
 
   
- // Get all ball elements
- const balls = document.querySelectorAll('.ball');
+  function selectBall(event) {
+    var selectedBall = event.target.innerHTML;
+    document.getElementById("selectedBall").innerHTML = selectedBall;
+  }
+  
+  function quickPick() {
+    var balls = document.querySelectorAll(".ballslist .ball");
+    var ball;
+    for (var i = 0; i <= 6; i++) {
+      var randomIndex = Math.floor(Math.random() * balls.length);
+      ball = balls[randomIndex];
+      var ballNumber = ball.innerHTML;
+      document.getElementById("selectedBall").innerHTML = ballNumber;
+      balls = Array.from(balls).filter(function(b) {
+        return b !== ball;
+      });
+    }
+  
+  
+  }
+  const balls = document.querySelectorAll('.ballist .ball');
+const selectionBalls = document.querySelectorAll('.selector .ball');
+// const quickpick = document.querySelector('.quickpick-button');
 
- // Add a click event listener to each ball element
- balls.forEach(ball => {
-   ball.addEventListener('click', () => {
-     // Check if the ball is already selected
-     if (ball.classList.contains('selected')) {
-       // If the ball is already selected, unselect it
-       ball.classList.remove('selected');
-     } else {
-       // If the ball is not selected, select it
-       // Check if there are already 6 balls selected
-       const selectedBalls = document.querySelectorAll('.selected');
-       if (selectedBalls.length < 6) {
-         // If there are less than 6 balls selected, select the ball
-         ball.classList.add('selected');
-       } else {
-         // If there are already 6 balls selected, show an error message
-         alert('You can only select 6 balls');
-       }
-     }
-     // Update the selected balls in the ball00 elements
-     updateSelectedBalls();
-   });
- });
+let selectedBalls = [];
 
- function updateSelectedBalls() {
-   // Get the selected balls
-   const selectedBalls = document.querySelectorAll('.selected');
-   // Get the quick pick button element
-   const quickPickButton = document.querySelector('.quickpick-button');
-   // Get the ball00 elements
-   const ball00Elements = document.querySelectorAll('.ball00');
+balls.forEach(ball => {
+  ball.addEventListener('click', () => {
+    if (selectedBalls.length >= 6) {
+      return; // If already 6 balls are selected, don't select anymore.
+    }
+    if (!selectedBalls.includes(ball)) {
+      selectedBalls.push(ball);
+      updateSelectionBallsUI();
+    }
+  });
+});
 
-   // Check if quick pick is selected
-   if (quickPickButton.classList.contains('active')) {
-     // If quick pick is selected, use the quick pick logic
-     ball00Elements.forEach(ball00 => {
-       const randomNum = Math.floor(Math.random() * 52) + 1;
-       ball00.textContent = randomNum.toString().padStart(2, '0');
-     });
-   } else {
-     // If quick pick is not selected, update the ball00 elements with the selected balls
-     for (let i = 0; i < ball00Elements.length; i++) {
-       if (i < selectedBalls.length) {
-         ball00Elements[i].textContent = selectedBalls[i].textContent;
-         selectedBalls[i].classList.remove('selected');
-       } else {
-         ball00Elements[i].textContent = '--';
-       }
-     }
-   }
- }
+function updateSelectionBallsUI() {
+  selectionBalls.forEach((selectionBall, index) => {
+    if (selectedBalls.length > index) {
+      const selectedBall = selectedBalls[index];
+      selectionBall.innerText = selectedBall.innerText;
+      selectionBall.classList.remove('ball00');
+    } else {
+      selectionBall.innerText = '';
+      selectionBall.classList.add('ball00');
+    }
+  });
+}
+
+// Get references to the checkboxes and the total amount element
+// const lottoPlus1Checkbox = document.querySelector('input[name="lottoplus1"]');
+// const lottoPlus2Checkbox = document.querySelector('input[name="lottoplus2"]');
+// const costElement = document.querySelector('#cost');
+
+// // Set the initial total amount
+// let cost = 0;
+
+// // Add event listener to the lottoPlus1 checkbox
+// lottoPlus1Checkbox.addEventListener('change', function() {
+//   if (this.checked) {
+//     cost += 7.5;
+//   } else {
+//     cost -= 7.5;
+//   }
+//   costElement.innerText = `Total: R${cost.toFixed(2)}`;
+// });
+
+// // Add event listener to the lottoPlus2 checkbox
+// lottoPlus2Checkbox.addEventListener('change', function() {
+//   if (this.checked) {
+//     cost += 10;
+//   } else {
+//     cost -= 10;
+//   }
+//   costElement.innerText = `cost of Ticket(s): R${cost.toFixed(2)}`;
+// });
+
+
 
  function handleNumRowsChange(e) {
    setNumRows(e.target.value);
  }
-
-//  function handleQuickPickChange(e) {
-//    setQuickPick(e.target.checked);
-//  }
-
-//  function generateRandomNumbers() {
-//    const numbers = [];
-//    while (numbers.length < 6) {
-//      const num = Math.floor(Math.random() * 49) + 1;
-//      if (!numbers.includes(num)) {
-//        numbers.push(num);
-//      }
-//    }
-//    return numbers.sort((a, b) => a - b);
-//  }
-
-//  function generateTickets() {
-//    const tickets = [];
-//    for (let i = 0; i < numRows; i++) {
-//      const ticket = quickPick ? generateRandomNumbers() : [];
-//      tickets.push(ticket);
-//    }
-//    return tickets;
-//  }
-
-//  const tickets = generateTickets();
-
- 
 
   return (
     <div className="lotto">
@@ -423,436 +421,86 @@ function Lotto() {
           <div class="ballist">
             <div class="picker">
               <section class="ballslist lotto" style={linkStyle13}>
-                <span data-item-id="1" class="ball ball01">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>1</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="" class="ball ball02">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>2</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="3" class="ball ball03">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>3</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="4" class="ball ball04">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>4</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="5" class="ball ball05">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>5</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="6" class="ball ball06">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>6</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="7" class="ball ball07">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>7</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="8" class="ball ball08">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>8</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="9" class="ball ball09">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>9</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="10" class="ball ball10">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>10</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="11" class="ball ball11">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>11</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="12" class="ball ball12">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>12</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="13" class="ball ball13">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>13</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="14" class="ball ball14">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>14</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="15" class="ball ball15">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>15</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="16" class="ball ball16">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>16</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="17" class="ball ball17">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>17</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="18" class="ball ball18">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>18</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="19" class="ball ball19">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>19</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="20" class="ball ball20">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>20</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="21" class="ball ball21">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>21</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="22" class="ball ball22">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>22</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="23" class="ball ball23">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>23</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="24" class="ball ball24">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>24</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="25" class="ball ball25">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>25</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="26" class="ball ball26">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>26</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="27" class="ball ball27">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>27</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="28" class="ball ball28">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>28</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="29" class="ball ball29">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>29</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="30" class="ball ball30">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>30</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="11" class="ball ball31">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>31</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="32" class="ball ball32">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>32</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="33" class="ball ball33">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>33</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="34" class="ball ball34">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>34</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="35" class="ball ball35">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>35</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="36" class="ball ball36">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>36</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="37" class="ball ball37">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>37</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="38" class="ball ball38">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>38</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="39" class="ball ball39">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>39</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="40" class="ball ball40">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>40</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="41" class="ball ball41">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>41</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="42" class="ball ball42">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>42</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="43" class="ball ball43">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>43</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="44" class="ball ball44">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>44</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="45" class="ball ball45">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>45</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="46" class="ball ball46">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>46</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="47" class="ball ball47">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>47</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="48" class="ball ball48">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>48</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="49" class="ball ball49">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>49</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="50" class="ball ball50">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>50</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="51" class="ball ball51">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>51</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                <span data-item-id="52" class="ball ball52">
-                  <div class="shape">
-                    <span className="before"></span>
-                    <span>52</span>
-                    <span className="after"></span>
-                  </div>
-                </span>
-                
-                
+              <span data-item-id="1"  class="ball ball01" onClick={selectBall}>1</span>
+              <span data-item-id="2"  class="ball ball02" onClick={selectBall}>2</span>
+              <span data-item-id="3"  class="ball ball03" onClick={selectBall}>3</span>
+              <span data-item-id="4"  class="ball ball04" onClick={selectBall}>4</span>
+              <span data-item-id="5"  class="ball ball05" onClick={selectBall}>5</span>
+              <span data-item-id="6"  class="ball ball06" onClick={selectBall}>6</span>
+              <span data-item-id="7"  class="ball ball06" onClick={selectBall}>7</span>
+              <span data-item-id="8"  class="ball ball06" onClick={selectBall}>8</span>
+              <span data-item-id="9"  class="ball ball06" onClick={selectBall}>9</span>
+              <span data-item-id="10" class="ball ball06" onClick={selectBall}>10</span>
+              <span data-item-id="11" class="ball ball06" onClick={selectBall}>11</span>
+              <span data-item-id="12" class="ball ball06" onClick={selectBall}>12</span>
+              <span data-item-id="13" class="ball ball06" onClick={selectBall}>13</span>
+              <span data-item-id="14" class="ball ball06" onClick={selectBall}>14</span>
+              <span data-item-id="15" class="ball ball06" onClick={selectBall}>15</span>
+              <span data-item-id="16" class="ball ball06" onClick={selectBall}>16</span>
+              <span data-item-id="17" class="ball ball06" onClick={selectBall}>17</span>
+              <span data-item-id="18" class="ball ball06" onClick={selectBall}>18</span>
+              <span data-item-id="19" class="ball ball06" onClick={selectBall}>19</span>
+              <span data-item-id="20" class="ball ball06" onClick={selectBall}>20</span>
+              <span data-item-id="21" class="ball ball06" onClick={selectBall}>21</span>
+              <span data-item-id="22" class="ball ball06" onClick={selectBall}>22</span>
+              <span data-item-id="23" class="ball ball06" onClick={selectBall}>23</span>
+              <span data-item-id="24" class="ball ball06" onClick={selectBall}>24</span>
+              <span data-item-id="25" class="ball ball06" onClick={selectBall}>25</span>
+              <span data-item-id="26" class="ball ball06" onClick={selectBall}>26</span>
+              <span data-item-id="27" class="ball ball06" onClick={selectBall}>27</span>
+              <span data-item-id="28" class="ball ball06" onClick={selectBall}>28</span>
+              <span data-item-id="29" class="ball ball06" onClick={selectBall}>29</span>
+              <span data-item-id="30" class="ball ball06" onClick={selectBall}>30</span>
+              <span data-item-id="31" class="ball ball06" onClick={selectBall}>31</span>
+              <span data-item-id="32" class="ball ball06" onClick={selectBall}>32</span>
+              <span data-item-id="33" class="ball ball06" onClick={selectBall}>33</span>
+              <span data-item-id="34" class="ball ball06" onClick={selectBall}>34</span>
+              <span data-item-id="35" class="ball ball06" onClick={selectBall}>35</span>
+              <span data-item-id="36" class="ball ball06" onClick={selectBall}>36</span>
+              <span data-item-id="37" class="ball ball06" onClick={selectBall}>37</span>
+              <span data-item-id="38" class="ball ball06" onClick={selectBall}>38</span>
+              <span data-item-id="39" class="ball ball06" onClick={selectBall}>39</span>
+              <span data-item-id="40" class="ball ball06" onClick={selectBall}>40</span>
+              <span data-item-id="41" class="ball ball06" onClick={selectBall}>41</span>
+              <span data-item-id="42" class="ball ball06" onClick={selectBall}>42</span>
+              <span data-item-id="43" class="ball ball06" onClick={selectBall}>43</span>
+              <span data-item-id="44" class="ball ball06" onClick={selectBall}>44</span>
+              <span data-item-id="45" class="ball ball06" onClick={selectBall}>45</span>
+              <span data-item-id="46" class="ball ball06" onClick={selectBall}>46</span>
+              <span data-item-id="47" class="ball ball06" onClick={selectBall}>47</span>
+              <span data-item-id="48" class="ball ball06" onClick={selectBall}>48</span>
+              <span data-item-id="49" class="ball ball06" onClick={selectBall}>49</span>
+              <span data-item-id="50" class="ball ball06" onClick={selectBall}>50</span>
+              <span data-item-id="51" class="ball ball06" onClick={selectBall}>51</span>
+              <span data-item-id="52" class="ball ball06" onClick={selectBall}>52</span>
               </section>
             </div>
           </div>
         </div>
       </div>
+
       <div className="lotto-desktop-col">
-        <div className="selections__cont">
+        <div className="selections__cont"> 
           <div className="bet-info">
             <div className="alert-info odd-name">Selections</div>
           </div>
           <div>
             <section className="selector">
               <span className="ballslist lotto">
-              <span className="ball ball00">
-          <div className="shape">
-              <span className="shape-before"></span>
-             <span></span>
-              <span className="shape-after"></span>
-          </div>
-            </span>
-            <span className="ball ball00">
-          <div className="shape">
-              <span className="shape-before"></span>
-             <span></span>
-              <span className="shape-after"></span>
-          </div>
-            </span>
-            <span className="ball ball00">
-          <div className="shape">
-              <span className="shape-before"></span>
-             <span></span>
-              <span className="shape-after"></span>
-          </div>
-            </span>
-            <span className="ball ball00">
-          <div className="shape">
-              <span className="shape-before"></span>
-             <span></span>
-              <span className="shape-after"></span>
-          </div>
-            </span>
-            <span className="ball ball00">
-          <div className="shape">
-              <span className="shape-before"></span>
-             <span></span>
-              <span className="shape-after"></span>
-          </div>
-            </span>
-            <span className="ball ball00">
-          <div className="shape">
-              <span className="shape-before"></span>
-             <span></span>
-              <span className="shape-after"></span>
-              </div>
-              </span>
-              <span className="shape-after"> </span>
+              <span className="ball ball00" id="selectedBall"></span>
+              <span className="ball ball00" id="selectedBall"></span>
+              <span className="ball ball00" id="selectedBall"></span>
+              <span className="ball ball00" id="selectedBall"></span>
+              <span className="ball ball00" id="selectedBall"></span>
+              <span className="ball ball00" id="selectedBall"></span>
               </span>
               <div className= 'quickpick' style={linkStyle10}>
-                <span className="btn btn-med quickpick-button" data-value="6">Quick Pick</span>
+                <span className="btn btn-med quickpick-button" data-value="6" onClick={quickPick}>Quick Pick</span>
                 <div className="clear"></div>
               </div>
           </section>
           <div className='Select-button' style={linkStyle11}>
-              <span className="btn btn-lg place-bet-button">Select</span>
+          <span className="btn btn-lg place-bet-button" id="selectButton">Select</span>
           </div>
           </div>
         </div>
@@ -860,7 +508,19 @@ function Lotto() {
           <div className="bet-info">
             <div className="alert-info odd-name">Ticket(s):</div>
           </div>
-          <div className="lotterybetslip"></div>
+          <div className="lotterybetslip">
+          <div class="lottobet" id='container'>
+            <span class="desc">Board 1</span>
+                - 
+            <span className="ball ball00" id="selectedBall"></span>
+            <span className="ball ball00" id="selectedBall"></span>
+            <span className="ball ball00" id="selectedBall"></span>
+            <span className="ball ball00" id="selectedBall"></span>
+            <span className="ball ball00" id="selectedBall"></span>
+            <span className="ball ball00" id="selectedBall"></span>
+            <span class="ballslist lotto"></span>
+          </div>
+          </div>
         </div>
         <div className="addons__cont betoptions">
               <div>
@@ -894,7 +554,7 @@ function Lotto() {
 </div>
 <div class="betslip__cont">
   <div class="totals">
-    Cost of Ticket(s): 
+    cost of Ticket(s): 
     <span id="cost"> R0.00</span>
   </div>
 </div>
