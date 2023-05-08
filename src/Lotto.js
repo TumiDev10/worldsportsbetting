@@ -221,7 +221,19 @@ function Lotto() {
     display: 'block'
   }
 
+  const linkStyle14 = {
+    width:'100%'
+  }
+
+  const linkStyle15 = {
+    left: '0%',
+    margintop: '0px',
+    height: '17px'
+}
+
   
+
+
   function selectBall(event) {
     var selectedBall = event.target.innerHTML;
     document.getElementById("selectedBall").innerHTML = selectedBall;
@@ -408,11 +420,20 @@ function updateSelectionBallsUI() {
         <div className="lotto-desktop-col">
           <div className="header__cont">
             <div className="bet-info">
-              <div className="alert-info odd-name">Select number of draws:</div>
-            </div>
-            <input className='Slider' type="range" min="1" max="10" value={numRows} onChange={handleNumRowsChange} />
-              <label className= 'NoDraws'>No Draws:</label>
-              <span>{numRows}</span>
+              <div class="alert-info odd-name">Select number of draws:</div>
+              </div>
+            <div class="slider__cont">
+              <div id="slider-range-max" class="slider__cont--bar ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+                <div class="ui-slider-range ui-corner-all ui-widget-header ui-slider-range-max" style={linkStyle14}>
+                  <div class="ui-slider-range ui-corner-all ui-widget-header ui-slider-range-max" style={linkStyle14}></div>
+                  <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style={linkStyle15}></span>
+                </div>
+              </div>
+              <div class="slider__cont--text">
+                <label for="amount">No Draws:</label>
+                <input type="text" id="amount" readonly class="slider__cont--input"></input>
+              </div>
+        </div>
         </div>
         <div className="lottoBall__cont">
           <div className="bet-info">
@@ -487,12 +508,12 @@ function updateSelectionBallsUI() {
           <div>
             <section className="selector">
               <span className="ballslist lotto">
-              <span className="ball ball00" id="selectedBall"></span>
-              <span className="ball ball00" id="selectedBall"></span>
-              <span className="ball ball00" id="selectedBall"></span>
-              <span className="ball ball00" id="selectedBall"></span>
-              <span className="ball ball00" id="selectedBall"></span>
-              <span className="ball ball00" id="selectedBall"></span>
+              <span className="ball ball00" id="selectedBall"><div class="shape"></div></span>
+              <span className="ball ball00" id="selectedBall"><div class="shape"></div></span>
+              <span className="ball ball00" id="selectedBall"><div class="shape"></div></span>
+              <span className="ball ball00" id="selectedBall"><div class="shape"></div></span>
+              <span className="ball ball00" id="selectedBall"><div class="shape"></div></span>
+              <span className="ball ball00" id="selectedBall"><div class="shape"></div></span>
               </span>
               <div className= 'quickpick' style={linkStyle10}>
                 <span className="btn btn-med quickpick-button" data-value="6" onClick={quickPick}>Quick Pick</span>
