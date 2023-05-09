@@ -1,161 +1,121 @@
-// import React, { useState } from 'react';
-// import './Lotto.css';
-
-
-// function Lotto() {
-//   const [numRows, setNumRows] = useState(1);
-//   const [quickPick, setQuickPick] = useState(true);
-  
-
- 
-//   function handleNumRowsChange(e) {
-//     setNumRows(e.target.value);
-//   }
-
-//   function handleQuickPickChange(e) {
-//     setQuickPick(e.target.checked);
-//   }
-
-//   function generateRandomNumbers() {
-//     const numbers = [];
-//     while (numbers.length < 6) {
-//       const num = Math.floor(Math.random() * 49) + 1;
-//       if (!numbers.includes(num)) {
-//         numbers.push(num);
-//       }
-//     }
-//     return numbers.sort((a, b) => a - b);
-//   }
-
-//   function generateTickets() {
-//     const tickets = [];
-//     for (let i = 0; i < numRows; i++) {
-//       const ticket = quickPick ? generateRandomNumbers() : [];
-//       tickets.push(ticket);
-//     }
-//     return tickets;
-//   }
-
-//   const tickets = generateTickets();
-
-//   return (
-//     <div className="lotto">
-//       <div className="header">
-//         <div className="buttons">
-//           <i className="fas fa-chevron-circle-left back-button"></i>
-//           <i className="fas fa-times exit-button"></i>
-//         </div>
-//         <div className='Lotto'>
-//           <h1>National Lottery - Lotto</h1>
-//         </div>
-//       </div>
-//       <div className='header__logo'>
-//         <button className="lotto-button1">
-//           <img className="blue-background" src="https://yt3.googleusercontent.com/ytc/AGIKgqP-H0waolKlrxysnALgv_SX58bciXjKHR6JqnQ-Ng=s900-c-k-c0x00ffffff-no-rj" alt="National Lottery" width="100" height="100" />
-//           <h1 className='daily-lotto1'>Daily Lotto</h1>
-//         </button>
-//         <button className="lotto-button2">
-//           <img style={{ backgroundColor: 'transparent' }} src="https://yt3.googleusercontent.com/ytc/AGIKgqP-H0waolKlrxysnALgv_SX58bciXjKHR6JqnQ-Ng=s900-c-k-c0x00ffffff-no-rj" alt="National Lottery" width="100" height="100" />
-//           <h1 className='daily-lotto2'>Powerball</h1>
-//         </button>
-//         <button className="lotto-button3">
-//           <img style={{ backgroundColor: 'transparent' }} src="https://yt3.googleusercontent.com/ytc/AGIKgqP-H0waolKlrxysnALgv_SX58bciXjKHR6JqnQ-Ng=s900-c-k-c0x00ffffff-no-rj" alt="National Lottery" width="100" height="100" />
-//           <h1 className='daily-lotto3'>SPORTSTAKE8</h1>
-//         </button>
-//         <button className="lotto-button4">   
-//   <img style={{ backgroundColor: 'transparent' }} src="https://yt3.googleusercontent.com/ytc/AGIKgqP-H0waolKlrxysnALgv_SX58bciXjKHR6JqnQ-Ng=s900-c-k-c0x00ffffff-no-rj" alt="National Lottery" width="100" height="100" />
-//   <h1 className='daily-lotto4'>SPORTSTAKE13</h1>
-// </button>
-//         </div>
-//         <div className='Lotto-heading'>
-//         <h2>LOTTO</h2>
-//         <label>
-//         YOU HAVE SELECTED TO PLAY LOTTO
-//         </label>
-//         <div className='Lotto-heading1'>
-//         <button type="button" className='Instructions'>
-//         <label>HOW TO PLAY?</label>
-//         </button>
-//         <button className='Results'>
-//         <label>Results</label>
-//         </button>
-//         </div>
-//         </div>
-//         <div className="selections1">
-//   <div className="column1">
-//     <h3>Select number of draws:</h3>
-//     <input className='Slider' type="range" min="1" max="10" value={numRows} onChange={handleNumRowsChange} />
-//     <label className= 'NoDraws'>No Draws:</label>
-//     <span>{numRows}</span>
-//   </div>
-//   <div className="column2">
-//     <h3>Selections:</h3>
-//     <label>
-//       Quick pick:
-//       <input type="checkbox" checked={quickPick} onChange={handleQuickPickChange} />
-//     </label>
-//     <div className="numbers">
-//       {quickPick && (
-//         <>
-//           <span className="selected">{generateRandomNumbers()[0]}</span>
-//           <span className="selected">{generateRandomNumbers()[1]}</span>
-//           <span className="selected">{generateRandomNumbers()[2]}</span>
-//           <span className="selected">{generateRandomNumbers()[3]}</span>
-//           <span className="selected">{generateRandomNumbers()[4]}</span>
-//           <span className="selected">{generateRandomNumbers()[5]}</span>
-//         </>
-//       )}
-//     </div>
-//   </div>
-// </div>
-// <div className="selections2">
-//   <div className="column1">
-//     <h3>Select(6) balls:</h3>
-//     <div className="numbers">
-//       {[...Array(52).keys()].map((number) => (
-//         <span key={number} className="ball">{number + 1}</span>
-//       ))}
-//     </div>
-//   </div>
-//   <div className="column2">
-//     <h3>Ticket(s):</h3>
-//     <div className="tickets">
-//       {tickets.map((ticket, index) => (
-//         <div key={index} className="ticket">
-//           {ticket.map((number) => (
-//             <span key={number} className="selected">{number}</span>
-//           ))}
-//         </div>
-//       ))}
-//     </div>
-//   </div>
-// </div>
-// <div className="footer1">
-//        <p>cost of tickets: R{tickets.length * 7.50}</p>
-//        </div>
-// <div className="footer">
-//       <button>Buy tickets</button>
-//        </div>
-// </div>
-
-// );
-// }
-// export default Lotto;
-
-
-
-
-
-
-
-
 import React, { useState } from 'react';
 import './Lotto.css';
 
 
 function Lotto() {
-  const [numRows, setNumRows] = useState(1);
+  // const [numRows, setNumRows] = useState(1);
   // const [quickPick] = useState(true);
+// Get references to the checkboxes and the total amount element
+const lottoPlus1Checkbox = document.querySelector('input[name="lottoplus1"]');
+const lottoPlus2Checkbox = document.querySelector('input[name="lottoplus2"]');
+const costElement = document.querySelector('#cost');
+// const balls = document.querySelectorAll('.ballist .ball');
+// const selectionBalls = document.querySelectorAll('.selector .ball');
+const [selectedNumbers, setSelectedNumbers] = useState([]);
+const [pickerNumbers, setPickerNumbers] = useState([
+    { id: 1, value: 1 },
+    { id: 2, value: 2 },
+    { id: 3, value: 3 },
+    { id: 4, value: 4 },
+    { id: 5, value: 5 },
+    { id: 6, value: 6 },
+    { id: 7, value: 7 },
+    { id: 8, value: 8 },
+    { id: 9, value: 9 },
+    { id: 10, value: 10},
+    { id: 11, value: 11},
+    { id: 12, value: 12},
+    { id: 13, value: 13},
+    { id: 14, value: 14},
+    { id: 15, value: 15},
+    { id: 16, value: 16},
+    { id: 17, value: 17},
+    { id: 18, value: 18},
+    { id: 19, value: 19},
+    { id: 20, value: 20},
+    { id: 21, value: 21},
+    { id: 22, value: 22},
+    { id: 23, value: 23},
+    { id: 24, value: 24},
+    { id: 25, value: 25},
+    { id: 26, value: 26},
+    { id: 27, value: 27},
+    { id: 28, value: 28},
+    { id: 29, value: 29},
+    { id: 30, value: 30},
+    { id: 31, value: 31},
+    { id: 32, value: 32},
+    { id: 33, value: 33},
+    { id: 34, value: 34},
+    { id: 35, value: 35},
+    { id: 36, value: 36},
+    { id: 37, value: 37},
+    { id: 38, value: 38},
+    { id: 39, value: 39},
+    { id: 40, value: 40},
+    { id: 41, value: 41},
+    { id: 42, value: 42},
+    { id: 43, value: 43},
+    { id: 44, value: 44},
+    { id: 45, value: 45},
+    { id: 46, value: 46},
+    { id: 47, value: 47},
+    { id: 48, value: 48},
+    { id: 49, value: 49},
+    { id: 50, value: 50},
+    { id: 51, value: 51},
+    { id: 52, value: 52},
+
+
+  ]);
+
+ 
+  const handleQuickPick = () => {
+    const numbers = [];
+    while (numbers.length < 6) {
+      const number = Math.floor(Math.random() * 49) + 1;
+      if (!numbers.includes(number)) {
+        numbers.push(number);
+      }
+    }
+    setSelectedNumbers(numbers);
+  };
+
+  const handleSelectBall = id => {
+    const selectedNumber = pickerNumbers.find(item => item.id === id);
+    if (selectedNumbers.includes(selectedNumber.value)) {
+      setSelectedNumbers(selectedNumbers.filter(number => number !== selectedNumber.value));
+    } else if (selectedNumbers.length < 6) {
+      setSelectedNumbers([...selectedNumbers, selectedNumber.value]);
+    }
+  };
+
+  const emptyBalls = Array.from({ length: 6 - selectedNumbers.length }, (_, index) => (
+    <span className="ball" key={index} id={`selectedBall-${index}`}>
+      <div className="shape"></div>
+    </span>
+  ));
+
+  const selectedBalls = selectedNumbers.map(number => (
+    <span className="ball" key={number} id={`selectedBall-${number}`}>
+      <div className="shape">{number}</div>
+    </span>
+  ));
+
+  const pickerBalls = pickerNumbers.map(item => (
+    <span
+      className={`ball ball0${item.value}`}
+      key={item.id}
+      data-item-id={item.id}
+      onClick={() => handleSelectBall(item.id)}
+    >
+      {item.value}
+    </span>
+  ));
+
+
+
+
   const linkStyle = {
     marginRight: '6px',
     color: 'red',
@@ -231,7 +191,37 @@ function Lotto() {
     height: '17px'
 }
 
+
+function selectBall(event) {
+  const clickedBall = event.target;
+  const clickedBallValue = clickedBall.textContent;
+  const selectionBalls = document.querySelectorAll('.ball00');
+  let selectedBalls = [];
   
+  // Update selectedBalls array and clicked ball HTML
+  if (clickedBall.classList.contains('selected')) {
+    clickedBall.classList.remove('selected');
+    selectedBalls = selectedBalls.filter(ball => ball !== clickedBallValue);
+  } else {
+    if (selectedBalls.length < 6) {
+      clickedBall.classList.add('selected');
+      selectedBalls.push(clickedBallValue);
+    }
+  }
+
+  // Update all selection balls HTML
+  selectionBalls.forEach((ball, index) => {
+    if (index < selectedBalls.length) {
+      ball.innerHTML = `<div class="shape">${selectedBalls[index]}</div>`;
+    } else {
+      ball.innerHTML = '';
+    }
+  });
+}
+
+
+
+
 
 
   function selectBall(event) {
@@ -241,83 +231,34 @@ function Lotto() {
   
   function quickPick() {
     var balls = document.querySelectorAll(".ballslist .ball");
-    var ball;
-    for (var i = 0; i <= 6; i++) {
-      var randomIndex = Math.floor(Math.random() * balls.length);
-      ball = balls[randomIndex];
-      var ballNumber = ball.innerHTML;
-      document.getElementById("selectedBall").innerHTML = ballNumber;
-      balls = Array.from(balls).filter(function(b) {
-        return b !== ball;
-      });
-    }
-  
-  
+    var selectionBalls = document.querySelectorAll('.selector .ball');
+    var selectedBalls = [];
   }
-  const balls = document.querySelectorAll('.ballist .ball');
-const selectionBalls = document.querySelectorAll('.selector .ball');
-// const quickpick = document.querySelector('.quickpick-button');
 
-let selectedBalls = [];
+if (lottoPlus1Checkbox && lottoPlus2Checkbox && costElement) {
+  // Set the initial total amount
+  let cost = 0;
 
-balls.forEach(ball => {
-  ball.addEventListener('click', () => {
-    if (selectedBalls.length >= 6) {
-      return; // If already 6 balls are selected, don't select anymore.
-    }
-    if (!selectedBalls.includes(ball)) {
-      selectedBalls.push(ball);
-      updateSelectionBallsUI();
-    }
-  });
+// Add event listener to the lottoPlus1 checkbox
+lottoPlus1Checkbox.addEventListener('change', function() {
+  if (this.checked) {
+    cost += 7.5;
+  } else {
+    cost -= 7.5;
+  }
+  costElement.innerText = ` R${cost.toFixed(2)}`;
 });
 
-function updateSelectionBallsUI() {
-  selectionBalls.forEach((selectionBall, index) => {
-    if (selectedBalls.length > index) {
-      const selectedBall = selectedBalls[index];
-      selectionBall.innerText = selectedBall.innerText;
-      selectionBall.classList.remove('ball00');
-    } else {
-      selectionBall.innerText = '';
-      selectionBall.classList.add('ball00');
-    }
-  });
+// Add event listener to the lottoPlus2 checkbox
+lottoPlus2Checkbox.addEventListener('change', function() {
+  if (this.checked) {
+    cost += 10;
+  } else {
+    cost -= 10;
+  }
+  costElement.innerText = ` R${cost.toFixed(2)}`;
+});
 }
-
-// Get references to the checkboxes and the total amount element
-// const lottoPlus1Checkbox = document.querySelector('input[name="lottoplus1"]');
-// const lottoPlus2Checkbox = document.querySelector('input[name="lottoplus2"]');
-// const costElement = document.querySelector('#cost');
-
-// // Set the initial total amount
-// let cost = 0;
-
-// // Add event listener to the lottoPlus1 checkbox
-// lottoPlus1Checkbox.addEventListener('change', function() {
-//   if (this.checked) {
-//     cost += 7.5;
-//   } else {
-//     cost -= 7.5;
-//   }
-//   costElement.innerText = `Total: R${cost.toFixed(2)}`;
-// });
-
-// // Add event listener to the lottoPlus2 checkbox
-// lottoPlus2Checkbox.addEventListener('change', function() {
-//   if (this.checked) {
-//     cost += 10;
-//   } else {
-//     cost -= 10;
-//   }
-//   costElement.innerText = `cost of Ticket(s): R${cost.toFixed(2)}`;
-// });
-
-
-
- function handleNumRowsChange(e) {
-   setNumRows(e.target.value);
- }
 
   return (
     <div className="lotto">
@@ -441,60 +382,7 @@ function updateSelectionBallsUI() {
           </div>
           <div class="ballist">
             <div class="picker">
-              <section class="ballslist lotto" style={linkStyle13}>
-              <span data-item-id="1"  class="ball ball01" onClick={selectBall}>1</span>
-              <span data-item-id="2"  class="ball ball02" onClick={selectBall}>2</span>
-              <span data-item-id="3"  class="ball ball03" onClick={selectBall}>3</span>
-              <span data-item-id="4"  class="ball ball04" onClick={selectBall}>4</span>
-              <span data-item-id="5"  class="ball ball05" onClick={selectBall}>5</span>
-              <span data-item-id="6"  class="ball ball06" onClick={selectBall}>6</span>
-              <span data-item-id="7"  class="ball ball06" onClick={selectBall}>7</span>
-              <span data-item-id="8"  class="ball ball06" onClick={selectBall}>8</span>
-              <span data-item-id="9"  class="ball ball06" onClick={selectBall}>9</span>
-              <span data-item-id="10" class="ball ball06" onClick={selectBall}>10</span>
-              <span data-item-id="11" class="ball ball06" onClick={selectBall}>11</span>
-              <span data-item-id="12" class="ball ball06" onClick={selectBall}>12</span>
-              <span data-item-id="13" class="ball ball06" onClick={selectBall}>13</span>
-              <span data-item-id="14" class="ball ball06" onClick={selectBall}>14</span>
-              <span data-item-id="15" class="ball ball06" onClick={selectBall}>15</span>
-              <span data-item-id="16" class="ball ball06" onClick={selectBall}>16</span>
-              <span data-item-id="17" class="ball ball06" onClick={selectBall}>17</span>
-              <span data-item-id="18" class="ball ball06" onClick={selectBall}>18</span>
-              <span data-item-id="19" class="ball ball06" onClick={selectBall}>19</span>
-              <span data-item-id="20" class="ball ball06" onClick={selectBall}>20</span>
-              <span data-item-id="21" class="ball ball06" onClick={selectBall}>21</span>
-              <span data-item-id="22" class="ball ball06" onClick={selectBall}>22</span>
-              <span data-item-id="23" class="ball ball06" onClick={selectBall}>23</span>
-              <span data-item-id="24" class="ball ball06" onClick={selectBall}>24</span>
-              <span data-item-id="25" class="ball ball06" onClick={selectBall}>25</span>
-              <span data-item-id="26" class="ball ball06" onClick={selectBall}>26</span>
-              <span data-item-id="27" class="ball ball06" onClick={selectBall}>27</span>
-              <span data-item-id="28" class="ball ball06" onClick={selectBall}>28</span>
-              <span data-item-id="29" class="ball ball06" onClick={selectBall}>29</span>
-              <span data-item-id="30" class="ball ball06" onClick={selectBall}>30</span>
-              <span data-item-id="31" class="ball ball06" onClick={selectBall}>31</span>
-              <span data-item-id="32" class="ball ball06" onClick={selectBall}>32</span>
-              <span data-item-id="33" class="ball ball06" onClick={selectBall}>33</span>
-              <span data-item-id="34" class="ball ball06" onClick={selectBall}>34</span>
-              <span data-item-id="35" class="ball ball06" onClick={selectBall}>35</span>
-              <span data-item-id="36" class="ball ball06" onClick={selectBall}>36</span>
-              <span data-item-id="37" class="ball ball06" onClick={selectBall}>37</span>
-              <span data-item-id="38" class="ball ball06" onClick={selectBall}>38</span>
-              <span data-item-id="39" class="ball ball06" onClick={selectBall}>39</span>
-              <span data-item-id="40" class="ball ball06" onClick={selectBall}>40</span>
-              <span data-item-id="41" class="ball ball06" onClick={selectBall}>41</span>
-              <span data-item-id="42" class="ball ball06" onClick={selectBall}>42</span>
-              <span data-item-id="43" class="ball ball06" onClick={selectBall}>43</span>
-              <span data-item-id="44" class="ball ball06" onClick={selectBall}>44</span>
-              <span data-item-id="45" class="ball ball06" onClick={selectBall}>45</span>
-              <span data-item-id="46" class="ball ball06" onClick={selectBall}>46</span>
-              <span data-item-id="47" class="ball ball06" onClick={selectBall}>47</span>
-              <span data-item-id="48" class="ball ball06" onClick={selectBall}>48</span>
-              <span data-item-id="49" class="ball ball06" onClick={selectBall}>49</span>
-              <span data-item-id="50" class="ball ball06" onClick={selectBall}>50</span>
-              <span data-item-id="51" class="ball ball06" onClick={selectBall}>51</span>
-              <span data-item-id="52" class="ball ball06" onClick={selectBall}>52</span>
-              </section>
+            <section className="ballslist lotto">{pickerBalls}</section>
             </div>
           </div>
         </div>
@@ -506,20 +394,23 @@ function updateSelectionBallsUI() {
             <div className="alert-info odd-name">Selections</div>
           </div>
           <div>
-            <section className="selector">
-              <span className="ballslist lotto">
-              <span className="ball ball00" id="selectedBall"><div class="shape"></div></span>
-              <span className="ball ball00" id="selectedBall"><div class="shape"></div></span>
-              <span className="ball ball00" id="selectedBall"><div class="shape"></div></span>
-              <span className="ball ball00" id="selectedBall"><div class="shape"></div></span>
-              <span className="ball ball00" id="selectedBall"><div class="shape"></div></span>
-              <span className="ball ball00" id="selectedBall"><div class="shape"></div></span>
-              </span>
-              <div className= 'quickpick' style={linkStyle10}>
-                <span className="btn btn-med quickpick-button" data-value="6" onClick={quickPick}>Quick Pick</span>
-                <div className="clear"></div>
-              </div>
-          </section>
+          <section className="selector">
+      <span className="ballslist lotto">
+        {selectedNumbers.length > 0 ? (
+          selectedNumbers.map(number => (
+            <span className="ball" key={number} id={`selectedBall-${number}`}>
+              <div className="shape">{number}</div>
+            </span>
+          ))
+        ) : (
+          emptyBalls
+        )}
+      </span>
+      <div className="quickpick">
+        <span className="btn btn-med quickpick-button" data-value="6" onClick={handleQuickPick}>Quick Pick</span>
+        <div className="clear"></div>
+      </div>
+    </section>
           <div className='Select-button' style={linkStyle11}>
           <span className="btn btn-lg place-bet-button" id="selectButton">Select</span>
           </div>

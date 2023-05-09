@@ -638,8 +638,8 @@ img {
 .onoffswitch {
   position: relative;
   width: 90px;
-  -webkit-user-select: none;
   display: inline-block;
+  /* margin-left: 28%; */
 }
 
 .onoffswitch-checkbox {
@@ -934,4 +934,68 @@ input[type="checkbox" i] {
   font-weight: normal;
   color: #454545;
   left: 0%;
+}
+
+.picker span[data-item-id="1"]:hover,
+.picker span[data-item-id="2"]:hover,
+.picker span[data-item-id="3"]:hover,
+.picker span[data-item-id="4"]:hover,
+.picker span[data-item-id="5"]:hover,
+.picker span[data-item-id="6"]:hover,
+.picker span[data-item-id="7"]:hover,
+.picker span[data-item-id="8"]:hover,
+.picker span[data-item-id="9"]:hover,
+.picker span[data-item-id="10"]:hover,
+.picker span[data-item-id="11"]:hover,
+.picker span[data-item-id="12"]:hover,
+.picker span[data-item-id="13"]:hover,
+.picker span[data-item-id="14"]:hover {
+  background-color: #b9282f;
+}
+
+.picker span[data-item-id="15"]:hover,
+.picker span[data-item-id="16"]:hover,
+.picker span[data-item-id="17"]:hover,
+.picker span[data-item-id="18"]:hover,
+.picker span[data-item-id="19"]:hover,
+.picker span[data-item-id="20"]:hover,
+.picker span[data-item-id="21"]:hover,
+.picker span[data-item-id="22"]:hover,
+.picker span[data-item-id="23"]:hover,
+.picker span[data-item-id="24"]:hover,
+.picker span[data-item-id="25"]:hover,
+.picker span[data-item-id="26"]:hover {
+  background-color: #fee818;
+}
+
+.picker span[data-item-id="27"]:hover,
+.picker span[data-item-id="28"]:hover,
+.picker span[data-item-id="29"]:hover,
+.picker span[data-item-id="30"]:hover,
+.picker span[data-item-id="31"]:hover,
+.picker span[data-item-id="32"]:hover,
+.picker span[data-item-id="33"]:hover,
+.picker span[data-item-id="34"]:hover,
+.picker span[data-item-id="35"]:hover,
+.picker span[data-item-id="36"]:hover,
+.picker span[data-item-id="37"]:hover,
+.picker span[data-item-id="38"]:hover {
+  background-color: #01ae43;
+}
+
+.picker span[data-item-id="39"]:hover,
+.picker span[data-item-id="40"]:hover,
+.picker span[data-item-id="41"]:hover,
+.picker span[data-item-id="42"]:hover,
+.picker span[data-item-id="43"]:hover,
+.picker span[data-item-id="44"]:hover,
+.picker span[data-item-id="45"]:hover,
+.picker span[data-item-id="46"]:hover,
+.picker span[data-item-id="47"]:hover,
+.picker span[data-item-id="48"]:hover,
+.picker span[data-item-id="49"]:hover,
+.picker span[data-item-id="50"]:hover,
+.picker span[data-item-id="51"]:hover,
+.picker span[data-item-id="52"]:hover{
+  background-color: #3eb6e8;
 }
