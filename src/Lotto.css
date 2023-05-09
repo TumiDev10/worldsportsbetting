@@ -627,10 +627,10 @@ img {
 }
 
 .addons__cont {
-  width: 100%;
+  width: 96%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   padding: 10px;
 }
@@ -639,6 +639,7 @@ img {
   position: relative;
   width: 90px;
   display: inline-block;
+  margin-left: 150px;
   /* margin-left: 28%; */
 }
 
@@ -951,6 +952,7 @@ input[type="checkbox" i] {
 .picker span[data-item-id="13"]:hover,
 .picker span[data-item-id="14"]:hover {
   background-color: #b9282f;
+  color:rgb(0, 1, 2);
 }
 
 .picker span[data-item-id="15"]:hover,
@@ -966,6 +968,7 @@ input[type="checkbox" i] {
 .picker span[data-item-id="25"]:hover,
 .picker span[data-item-id="26"]:hover {
   background-color: #fee818;
+  color:rgb(0, 1, 2);
 }
 
 .picker span[data-item-id="27"]:hover,
@@ -981,6 +984,7 @@ input[type="checkbox" i] {
 .picker span[data-item-id="37"]:hover,
 .picker span[data-item-id="38"]:hover {
   background-color: #01ae43;
+  color:rgb(0, 1, 2);
 }
 
 .picker span[data-item-id="39"]:hover,
@@ -998,4 +1002,106 @@ input[type="checkbox" i] {
 .picker span[data-item-id="51"]:hover,
 .picker span[data-item-id="52"]:hover{
   background-color: #3eb6e8;
+  color:rgb(0, 1, 2);
+}
+
+
+.ball {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin-right: 8px;
+  /* background-color: #f5d442; */
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  z-index: 10;
+ 
+}
+
+.ballsList > .ball > .shape:before,
+.ball:before {
+  content: '';
+  display: block;
+  width: 27px;
+  height: 25px;
+  /* position: absolute; */
+  left: 7px;
+  top: 8px;
+  background-color: #fff;
+  border-radius: 13px/7px;
+}
+
+.ball:before {
+  content: attr(data-ball-value);
+  font-size: 12px;
+  width: 27px;
+  height: 25px;
+  left: 7px;
+  top: 8px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  transition: all 0.25s ease-in-out;
+  color: #000;
+}
+
+.ball .number {
+  position: absolute;
+  top: 50%;
+  left: 46%;
+   transform: translate(-40%, -50%); 
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.ballslist>.ball> {
+  position: relative;
+  z-index: 10;
+  transition: all .25s ease-in-out;
+}
+
+.ball .shape {
+  position: absolute;
+  top: 50%;
+  left: 46%;
+   transform: translate(-40%, -50%); 
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 10;
+}
+/* Add more rules for each ball color */
+
+/* Add this rule for empty balls */
+
+
+/* Add this rule for selected balls */
+
+
+/* Add this rule to align balls in a row */
+.ballsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+/* Add this rule to align empty balls in a row */
+.emptyBalls {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.ballsList>.ball>.shape>span {
+  position: relative;
+  z-index: 10;
+  -webkit-transition: all .25s ease-in-out;
+  -moz-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
 }

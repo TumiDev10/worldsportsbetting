@@ -78,43 +78,39 @@ const [pickerNumbers, setPickerNumbers] = useState([
         numbers.push(number);
       }
     }
+    numbers.sort((a, b) => a - b);
     setSelectedNumbers(numbers);
   };
-
-  const handleSelectBall = id => {
-    const selectedNumber = pickerNumbers.find(item => item.id === id);
+  
+  const handleSelectBall = (id) => {
+    const selectedNumber = pickerNumbers.find((item) => item.id === id);
     if (selectedNumbers.includes(selectedNumber.value)) {
-      setSelectedNumbers(selectedNumbers.filter(number => number !== selectedNumber.value));
+      setSelectedNumbers(selectedNumbers.filter((number) => number !== selectedNumber.value).sort((a, b) => a - b));
     } else if (selectedNumbers.length < 6) {
-      setSelectedNumbers([...selectedNumbers, selectedNumber.value]);
+      setSelectedNumbers([...selectedNumbers, selectedNumber.value].sort((a, b) => a - b));
     }
   };
-
+  
   const emptyBalls = Array.from({ length: 6 - selectedNumbers.length }, (_, index) => (
     <span className="ball" key={index} id={`selectedBall-${index}`}>
       <div className="shape"></div>
     </span>
   ));
-
-  const selectedBalls = selectedNumbers.map(number => (
-    <span className="ball" key={number} id={`selectedBall-${number}`}>
-      <div className="shape">{number}</div>
-    </span>
-  ));
-
-  const pickerBalls = pickerNumbers.map(item => (
+  
+  const pickerBalls = pickerNumbers.map((item) => (
     <span
       className={`ball ball0${item.value}`}
       key={item.id}
       data-item-id={item.id}
       onClick={() => handleSelectBall(item.id)}
     >
-      {item.value}
+      <div className="number">{item.value}</div>
+      <div className="shape"></div>
     </span>
   ));
-
-
-
+  
+  
+  
 
   const linkStyle = {
     marginRight: '6px',
@@ -189,75 +185,6 @@ const [pickerNumbers, setPickerNumbers] = useState([
     left: '0%',
     margintop: '0px',
     height: '17px'
-}
-
-
-function selectBall(event) {
-  const clickedBall = event.target;
-  const clickedBallValue = clickedBall.textContent;
-  const selectionBalls = document.querySelectorAll('.ball00');
-  let selectedBalls = [];
-  
-  // Update selectedBalls array and clicked ball HTML
-  if (clickedBall.classList.contains('selected')) {
-    clickedBall.classList.remove('selected');
-    selectedBalls = selectedBalls.filter(ball => ball !== clickedBallValue);
-  } else {
-    if (selectedBalls.length < 6) {
-      clickedBall.classList.add('selected');
-      selectedBalls.push(clickedBallValue);
-    }
-  }
-
-  // Update all selection balls HTML
-  selectionBalls.forEach((ball, index) => {
-    if (index < selectedBalls.length) {
-      ball.innerHTML = `<div class="shape">${selectedBalls[index]}</div>`;
-    } else {
-      ball.innerHTML = '';
-    }
-  });
-}
-
-
-
-
-
-
-  function selectBall(event) {
-    var selectedBall = event.target.innerHTML;
-    document.getElementById("selectedBall").innerHTML = selectedBall;
-  }
-  
-  function quickPick() {
-    var balls = document.querySelectorAll(".ballslist .ball");
-    var selectionBalls = document.querySelectorAll('.selector .ball');
-    var selectedBalls = [];
-  }
-
-if (lottoPlus1Checkbox && lottoPlus2Checkbox && costElement) {
-  // Set the initial total amount
-  let cost = 0;
-
-// Add event listener to the lottoPlus1 checkbox
-lottoPlus1Checkbox.addEventListener('change', function() {
-  if (this.checked) {
-    cost += 7.5;
-  } else {
-    cost -= 7.5;
-  }
-  costElement.innerText = ` R${cost.toFixed(2)}`;
-});
-
-// Add event listener to the lottoPlus2 checkbox
-lottoPlus2Checkbox.addEventListener('change', function() {
-  if (this.checked) {
-    cost += 10;
-  } else {
-    cost -= 10;
-  }
-  costElement.innerText = ` R${cost.toFixed(2)}`;
-});
 }
 
   return (
@@ -395,17 +322,35 @@ lottoPlus2Checkbox.addEventListener('change', function() {
           </div>
           <div>
           <section className="selector">
-      <span className="ballslist lotto">
-        {selectedNumbers.length > 0 ? (
-          selectedNumbers.map(number => (
-            <span className="ball" key={number} id={`selectedBall-${number}`}>
-              <div className="shape">{number}</div>
-            </span>
-          ))
-        ) : (
-          emptyBalls
-        )}
-      </span>
+          <span className="ballslist lotto">
+            {selectedNumbers.length > 0 ? (
+              selectedNumbers.map(number => {
+                let ballColor = '';
+                if (number >= 1 && number <= 14) {
+                  ballColor = "#b9282f";
+                } else if (number >= 15 && number <= 26) {
+                  ballColor = "#fee818";
+                }
+                else if (number >= 27 && number <= 38) {
+                  ballColor = "#01ae43";
+                }
+                else if (number >= 39 && number <= 52) {
+                  ballColor = "#3eb6e8";
+                }
+                const style = {
+                  backgroundColor: ballColor,
+                };
+                
+                return (
+                  <span className="ball" key={number} id={`selectedBall-${number}`} style={style}>
+                    <div className="shape">{number}</div>
+                  </span>
+                );
+              })
+            ) : (
+              emptyBalls
+            )}
+          </span>
       <div className="quickpick">
         <span className="btn btn-med quickpick-button" data-value="6" onClick={handleQuickPick}>Quick Pick</span>
         <div className="clear"></div>
