@@ -3,16 +3,10 @@ import './Lotto.css';
 
 
 function Lotto() {
-  // const [numRows, setNumRows] = useState(1);
-  // const [quickPick] = useState(true);
-// Get references to the checkboxes and the total amount element
-const lottoPlus1Checkbox = document.querySelector('input[name="lottoplus1"]');
-const lottoPlus2Checkbox = document.querySelector('input[name="lottoplus2"]');
-const costElement = document.querySelector('#cost');
-// const balls = document.querySelectorAll('.ballist .ball');
-// const selectionBalls = document.querySelectorAll('.selector .ball');
+
+
 const [selectedNumbers, setSelectedNumbers] = useState([]);
-const [pickerNumbers, setPickerNumbers] = useState([
+const [pickerNumbers] = useState([
     { id: 1, value: 1 },
     { id: 2, value: 2 },
     { id: 3, value: 3 },
@@ -111,6 +105,7 @@ const [pickerNumbers, setPickerNumbers] = useState([
   
   
   
+  
 
   const linkStyle = {
     marginRight: '6px',
@@ -158,11 +153,6 @@ const [pickerNumbers, setPickerNumbers] = useState([
     padding:'0',
     fontsize:'1.22rem'
   }
-
-  const linkStyle10 = {
-    display:'inline-block'
-  }
-
   const linkStyle11 = {
     width:'100%',
     display:'inline-block',
@@ -173,9 +163,6 @@ const [pickerNumbers, setPickerNumbers] = useState([
     display:'inline-block'
   }
 
-  const linkStyle13 = {
-    display: 'block'
-  }
 
   const linkStyle14 = {
     width:'100%'
@@ -367,15 +354,7 @@ const [pickerNumbers, setPickerNumbers] = useState([
           </div>
           <div className="lotterybetslip">
           <div class="lottobet" id='container'>
-            <span class="desc">Board 1</span>
-                - 
-            <span className="ball ball00" id="selectedBall"></span>
-            <span className="ball ball00" id="selectedBall"></span>
-            <span className="ball ball00" id="selectedBall"></span>
-            <span className="ball ball00" id="selectedBall"></span>
-            <span className="ball ball00" id="selectedBall"></span>
-            <span className="ball ball00" id="selectedBall"></span>
-            <span class="ballslist lotto"></span>
+            
           </div>
           </div>
         </div>
