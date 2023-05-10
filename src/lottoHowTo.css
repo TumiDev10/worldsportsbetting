@@ -118,7 +118,7 @@ ul.hTP-step {
     line-height: 150px;
 }
 
-img, svg {
+.mb-6, svg {
     vertical-align: middle;
 }
 

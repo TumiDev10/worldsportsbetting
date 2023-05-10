@@ -423,7 +423,7 @@ img {
   border-radius: 0;
   border: none;
   margin-top: 0;
-  height: 21px;
+  height: 33px;
   padding: 6px;
   margin: 0;
   line-height: 21px;
@@ -1042,8 +1042,8 @@ input[type="checkbox" i] {
   font-size: 12px;
   width: 27px;
   height: 25px;
-  left: 7px;
-  top: 8px;
+  left: 5.9px;
+  top: 6.7px;
   text-align: center;
   position: relative;
   z-index: 10;

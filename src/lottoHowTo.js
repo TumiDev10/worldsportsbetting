@@ -1,5 +1,6 @@
 import React from 'react';
 import './lottoHowTo.css';
+import { Link } from 'react-router-dom';
 
 function LottoHowTo() {
   return (  
@@ -24,9 +25,9 @@ function LottoHowTo() {
                             <b>Lotto</b>
                         </div>
                         <div class="fr">
-                            <a href="/ithuba/lotto.php" title="Play Now SPORTSTAKE 8" customclick="play_now_sportstake8">
-                                <span class="buttonCustom">Play Lotto</span>
-                            </a>
+                            <Link to="/" className="buttonCustom" style={{ textDecoration: 'none', color: 'black', backgroundColor: 'white', padding: '10px 20px', borderRadius: '5px',borderColor: '#000102', border: '1px solid' }}>
+                            Play Lotto
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -46,7 +47,7 @@ function LottoHowTo() {
                                 <ul class="hTP-step">
                                     <li class="ul-class">
                                         <div class="stepCircle">
-                                            <img src="https://content.nationallottery.co.za/images/siteImg/howPlay/htp-stepIcon1.png" alt></img>
+                                            <img className='mb-6' src="https://content.nationallottery.co.za/images/siteImg/howPlay/htp-stepIcon1.png" alt=''></img>
                                             <div class="stepNum">1</div>
                                         </div>
                                         <div class="stepText"> Find a valid LOTTO Betslip. </div>
@@ -54,7 +55,7 @@ function LottoHowTo() {
 
                                     <li class="ul-class">
                                         <div class="stepCircle">
-                                            <img src="https://content.nationallottery.co.za/images/siteImg/howPlay/htp-stepIcon2.png" alt></img>
+                                            <img className='mb-6' src="https://content.nationallottery.co.za/images/siteImg/howPlay/htp-stepIcon2.png" alt=''></img>
                                             <div class="stepNum">2</div>
                                         </div>
                                         <div class="stepText">
@@ -64,7 +65,7 @@ function LottoHowTo() {
 
                                     <li class="ul-class">
                                         <div class="stepCircle">
-                                            <img src="https://content.nationallottery.co.za/images/siteImg/howPlay/htp-stepIcon3.png" alt></img>
+                                            <img className='mb-6' src="https://content.nationallottery.co.za/images/siteImg/howPlay/htp-stepIcon3.png" alt=''></img>
                                             <div class="stepNum">3</div>
                                         </div>
                                         <div class="stepText">
@@ -74,7 +75,7 @@ function LottoHowTo() {
 
                                     <li class="ul-class">
                                         <div class="stepCircle">
-                                            <img src="https://content.nationallottery.co.za/images/siteImg/howPlay/htp-stepIcon4.png" alt></img>
+                                            <img className='mb-6' src="https://content.nationallottery.co.za/images/siteImg/howPlay/htp-stepIcon4.png" alt=''></img>
                                             <div class="stepNum">4</div>
                                         </div>
                                         <div class="stepText"> You will receive a receipt from the teller with all your chosen numbers. </div>
@@ -82,7 +83,7 @@ function LottoHowTo() {
 
                                     <li class="ul-class">
                                         <div class="stepCircle">
-                                            <img src="https://content.nationallottery.co.za/images/siteImg/howPlay/htp-stepIcon5.png" alt></img>
+                                            <img className='mb-6' src="https://content.nationallottery.co.za/images/siteImg/howPlay/htp-stepIcon5.png" alt=''></img>
                                             <div class="stepNum">5</div>
                                         </div>
                                         <div class="stepText"> Make sure you write your name on the back of the receipt. </div>
@@ -90,7 +91,7 @@ function LottoHowTo() {
 
                                     <li class="ul-class">
                                         <div class="stepCircle">
-                                            <img src="https://content.nationallottery.co.za/images/siteImg/howPlay/htp-stepIcon6.png" alt></img>
+                                            <img className='mb-6' src="https://content.nationallottery.co.za/images/siteImg/howPlay/htp-stepIcon6.png" alt= ''></img>
                                             <div class="stepNum">6</div>
                                         </div>
                                         <div class="stepText">
