@@ -4,7 +4,7 @@ import './Lotto.css';
 
 function Lotto() {
 
-
+const [showSelectedNumbers, setShowSelectedNumbers] = useState(false);
 const [selectedNumbers, setSelectedNumbers] = useState([]);
 const [pickerNumbers] = useState([
     { id: 1, value: 1 },
@@ -102,11 +102,22 @@ const [pickerNumbers] = useState([
       <div className="shape"></div>
     </span>
   ));
-  
-  
-  
-  
 
+  const handleSelectNumber = (number) => {
+    if (selectedNumbers.includes(number)) {
+      setSelectedNumbers(selectedNumbers.filter((n) => n !== number));
+    } else {
+      setSelectedNumbers([...selectedNumbers, number]);
+    }
+  };
+  
+           
+  const handleClearBoard = () => {
+    setSelectedNumbers([]);
+    setShowSelectedNumbers(false);
+  };
+ 
+  
   const linkStyle = {
     marginRight: '6px',
     color: 'red',
@@ -174,6 +185,17 @@ const [pickerNumbers] = useState([
     height: '17px'
 }
 
+
+  const lottobetStyle = showSelectedNumbers
+  ? {
+      padding: '10px',
+      border: '1px solid #a6a6a6',
+      position: 'relative',
+    }
+  : {};
+
+
+  
   return (
     <div className="lotto">
       <div className="header">
@@ -289,6 +311,7 @@ const [pickerNumbers] = useState([
                 <input type="text" id="amount" readonly class="slider__cont--input"></input>
               </div>
         </div>
+        
         </div>
         <div className="lottoBall__cont">
           <div className="bet-info">
@@ -344,20 +367,51 @@ const [pickerNumbers] = useState([
       </div>
     </section>
           <div className='Select-button' style={linkStyle11}>
-          <span className="btn btn-lg place-bet-button" id="selectButton">Select</span>
+          <span className="btn btn-lg place-bet-button" id="selectButton" onClick={() => setShowSelectedNumbers(!showSelectedNumbers)}>Select</span>
           </div>
           </div>
         </div>
         <div className="tickets__cont">
-          <div className="bet-info">
-            <div className="alert-info odd-name">Ticket(s):</div>
-          </div>
-          <div className="lotterybetslip">
-          <div class="lottobet" id='container'>
+  <div className="bet-info">
+    <div className="alert-info odd-name">Ticket(s):</div>
+  </div>
+  <div className="lotterybetslip">
+    <div class="lottobet" id="container" style={lottobetStyle}>
+      {showSelectedNumbers && (
+            <span className="ballslist lotto" style={{ display: 'flex' }}>
+            <span className="desc">Board 1 - </span>
+             <span className="ballslist lotto" style={{ display: 'flex' }}>
+             {selectedNumbers.map(number => {
+                let ballColor = '';
+                if (number >= 1 && number <= 14) {
+                  ballColor = "#b9282f";
+                } else if (number >= 15 && number <= 26) {
+                  ballColor = "#fee818";
+                } else if (number >= 27 && number <= 38) {
+                  ballColor = "#01ae43";
+                } else if (number >= 39 && number <= 52) {
+                  ballColor = "#3eb6e8";
+                }
+                const style = {
+                  backgroundColor: ballColor,
+                };
+                return (
+                  <div className="cell" key={number} onClick={() => handleSelectNumber(number)}>
+                    <span className="ball" id={`ball-${number}`} style={style}>
+                      <div className="shape">{number}</div>
+                    </span>
+                  </div>
+                );
+              })}
+             </span>
+             <button onClick={handleClearBoard} className="removeSelection">X</button>
+            </span>
             
-          </div>
-          </div>
-        </div>
+      )}
+    </div>
+  </div>
+</div>
+        
         <div className="addons__cont betoptions">
               <div>
                 <div className="onoffswitch" style={linkStyle12}>

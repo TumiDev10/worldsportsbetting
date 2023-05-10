@@ -1105,3 +1105,32 @@ input[type="checkbox" i] {
   -o-transition: all .25s ease-in-out;
   transition: all .25s ease-in-out;
 }
+
+.lottobet {
+  display: block;
+}
+
+.desc {
+  color: #8d8d8d;
+  font-size: 18px;
+  margin-top: 15px;
+
+}
+
+.removeSelection {
+
+  background: linear-gradient(to bottom,#f24537 5%,#c62d1f 100%);
+  border-radius: 12px;
+    border: 1px solid #d02718;
+    cursor: pointer;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 3px 6px;
+    text-decoration: none;
+    float: right;
+    margin-top: 12px;
+    margin-left: 445px;
+    margin-bottom: 16px;
+
+}
