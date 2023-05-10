@@ -1,0 +1,213 @@
+@media only screen and (max-width: 991px){
+#sp-component {
+    width: 100%;
+}
+}
+
+article.item {
+    margin-bottom: 0;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+#sp-component .page-header h2.sportstake, #sp-component .page-header h2.sportstake8, #sp-component .page-header h2.sportstake13 {
+    background-color: #f8db19;
+}
+
+#sp-component .page-header h2 {
+    /* background-color: #069edb; */
+    color: #000;
+    text-transform: uppercase;
+    padding-left: 15px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    margin: 0;
+}
+
+.gameWrap .header {
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-bottom: 24px;
+    background-color: white;
+    color: black;
+    font-weight: 700;
+
+}
+
+.clearFix:before, .clearFix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.fl {
+    float: left;
+}
+
+b, strong {
+    font-weight: bolder;
+}
+
+.fr {
+    float: right;
+}
+
+a {
+    color: #0d6efd;
+    /* text-decoration: underline; */
+}
+
+.gameWrap .header .buttonCustom {
+    border: 1px solid #a8a8a8;
+    cursor: pointer;
+    padding: 5px 15px;
+    font-size: 12px;
+    color: #838383;
+    transition: all .25s ease-in-out;
+}
+
+.hTP-desc {
+    margin: 35px 0;
+    font-size: 13px;
+}
+
+.hTP-panel .hTP-panelHeading {
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #000;
+}
+
+.hTP-sportstake .hTP-panelHeading, .hTP-sportstake .stepCircle, .hTP-sortstake13 .hTP-panelHeading, .hTP-sortstake13 .stepCircle, .hTP-sortstake8 .hTP-panelHeading, .hTP-sortstake8 .stepCircle {
+    background-color: #f8db19;
+}
+
+ul.hTP-step {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.hTP-step li {
+    width: 33.33%;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.ul-class {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-inline-start: 40px;
+}
+
+.stepCircle {
+    position: relative;
+    margin-bottom: 40px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: inline-block;
+    line-height: 150px;
+}
+
+img, svg {
+    vertical-align: middle;
+}
+
+.hTP-step li .stepNum {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    font-size: 44px;
+    line-height: 44px;
+    font-weight: 600;
+    margin-left: -30px;
+    color: #000;
+}
+
+.stepText {
+    position: relative;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.bulletList {
+    font-size: 13px;
+}
+
+dl, ol, ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+ol, ul {
+    padding-left: 2rem;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-inline-start: 40px;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+}
+
+.hTPGameWrap button {
+    padding: 10px;
+}
+
+.btnGray {
+    background: #474747;
+    border: none;
+    color: #fff;
+    text-transform: uppercase;
+    transition: all .25s ease-in-out;
+}
+
+[type=button], [type=reset], [type=submit], button {
+    -webkit-appearance: button;
+}
+
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+button {
+    border-radius: 0;
+}
+
+a {
+    text-decoration: none!important;
+  
+}
+
+.gameWrap .header .buttonCustom {
+    border: 1px solid #a8a8a8;
+    cursor: pointer;
+    padding: 5px 15px;
+    font-size: 12px;
+    color: #838383;
+    transition: all .25s ease-in-out;
+}

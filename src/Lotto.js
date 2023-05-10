@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import './Lotto.css';
+import { Link } from 'react-router-dom';
 
 
 function Lotto() {
 
 const [showSelectedNumbers, setShowSelectedNumbers] = useState(false);
 const [selectedNumbers, setSelectedNumbers] = useState([]);
+const [selectedBalls, setSelectedBalls] = useState([]);
 const [pickerNumbers] = useState([
     { id: 1, value: 1 },
     { id: 2, value: 2 },
@@ -103,13 +105,20 @@ const [pickerNumbers] = useState([
     </span>
   ));
 
-  const handleSelectNumber = (number) => {
+  const handleSelectNumber = number => {
     if (selectedNumbers.includes(number)) {
-      setSelectedNumbers(selectedNumbers.filter((n) => n !== number));
+      setSelectedNumbers(selectedNumbers.filter(n => n !== number));
     } else {
       setSelectedNumbers([...selectedNumbers, number]);
     }
+    
+    if (selectedBalls.includes(number)) {
+      setSelectedBalls(selectedBalls.filter(n => n !== number));
+    } else {
+      setSelectedBalls([...selectedBalls, number]);
+    }
   };
+  
   
            
   const handleClearBoard = () => {
@@ -144,20 +153,11 @@ const [pickerNumbers] = useState([
     padding:'0 10px'
   }
 
-  const linkStyle6 = {
-    margintop:'0', 
-    marginright:'1rem'
-  }
-
   const linkStyle7 = {
     display:'flex', 
     flexdirection:'column',
     alignitems:'flex-start', 
     marginleft:'10px'
-  }
-
-  const linkStyle8 = { 
-    margintop:'0'
   }
 
   const linkStyle9 = {
@@ -288,8 +288,13 @@ const [pickerNumbers] = useState([
           <div className="col-md-12" style={linkStyle7}>
           <p style={linkStyle9}>YOU HAVE SELECTED TO PLAY LOTTO</p>
           <span>
-            <button type="button" className="btn btn-light" style={linkStyle6} onclick="window.location = '/ithuba/lottoHowTo.php'">HOW TO PLAY?</button>
-            <button type="button" className="btn btn-light" style={linkStyle8} onclick="window.location = '/ithuba/results-Select.php'">RESULTS</button>
+          <Link to="/lottoHowTo" className="btn btn-light" style={{ textDecoration: 'none', color: 'black', backgroundColor: '#e1e2e2', padding: '10px 20px', borderRadius: '5px',borderColor: '#000102', border: '1px solid' }}>
+            HOW TO PLAY?
+          </Link>
+
+          <Link to="/results-Select" className="btn btn-light" style={{ textDecoration: 'none', color: 'black', backgroundColor: '#e1e2e2', padding: '10px 20px', borderRadius: '5px',borderColor: '#000102', border: '1px solid' }}>
+            RESULTS
+          </Link>
           </span>
           </div>
         </div>
