@@ -183,9 +183,9 @@ li {
     transition: all .25s ease-in-out;
 }
 
-[type=button], [type=reset], [type=submit], button {
+/* [type=button], [type=reset], [type=submit], button {
     -webkit-appearance: button;
-}
+} */
 
 button, input, optgroup, select, textarea {
     margin: 0;
