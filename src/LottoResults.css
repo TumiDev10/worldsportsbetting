@@ -1,0 +1,91 @@
+.lotto__cont {
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.page-headings {
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px 15px;
+    background: #383737;
+    color: #ffffff;
+    text-transform: capitalize;
+    font-size: 13px;
+}
+
+.ballsList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 2px;
+}
+
+.lotto-results-balls-cont {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.lotto-results-balls-plus {
+    float: left;
+    display: block;
+    line-height: 35px;
+    padding: 0 5px;
+    margin-top: 6px;
+}
+
+.lotto-results-balls-cont-col {
+    width: 100%;
+}
+
+.lotto-results-section-header1 {
+    padding: 10px;
+    background-color: #f6d918;
+    color: #000;
+    font-weight: 700;
+}
+
+#ballz{
+    display: flex;
+}
+
+.text-color-grey {
+    color: #8f8f8f;
+}
+
+.ball.ball49{
+    background-color: rgb(19, 177, 240);
+}
+
+.ball.ball30{
+    background-color: rgb(14, 146, 14);
+}
+
+.ball.ball10{
+    background-color: rgb(139, 15, 15);
+}
+
+.ball.ball16{
+    background-color: #f6d918;
+}
+
+.ball.ball23{
+    background-color: #f6d918;
+}
+
+.ball.ball24{
+    background-color: #f6d918;
+}
+
+.ball.ball5{
+    background-color: rgb(139, 15, 15);
+} 

@@ -12,16 +12,16 @@
         box-sizing: border-box;
     }
     
-    #sp-component .page-header h3.hTP-Powerball, #sp-component .page-header h3.hTP-Powerball, #sp-component .page-header h3.Powerball {
-        background-color: #11a0d4;
+    #sp-component .page-header h2.sportstake, #sp-component .page-header h2.sportstake8, #sp-component .page-header h2.sportstake13 {
+        background-color: #00ad68;
     }
     
-    #sp-component .page-header h3 {
+    #sp-component .page-header h2 {
         /* background-color: #069edb; */
         color: #000;
         text-transform: uppercase;
         padding-left: 15px;
-        font-weight: 600;  
+        font-weight: 600;
         font-size: 14px;
         line-height: 22px;
         margin: 0;
@@ -82,8 +82,8 @@
         color: #000;
     }
     
-    .hTP-Powerbal.hTP-Powerball .hTP-panelHeading, .hTP-Powerbal.hTP-Powerball .stepCircle, .hTP-Powerball .hTP-panelHeading, .hTP-Powerball .stepCircle,.hTP-Powerball .hTP-panelHeading,.hTP-Powerball .stepCircle {
-        background-color: #11a0d4;
+    .hTP-sportstake .hTP-panelHeading, .hTP-sportstake .stepCircle, .hTP-sortstake13 .hTP-panelHeading, .hTP-sortstake13 .stepCircle, .hTP-sortstake8 .hTP-panelHeading, .hTP-sortstake8 .stepCircle {
+        background-color: #00ad68;
     }
     
     ul.hTP-step {
@@ -210,4 +210,33 @@
         font-size: 12px;
         color: #838383;
         transition: all .25s ease-in-out;
+    }
+
+    .sub, sup {
+        position: relative;
+        font-size: 0.75em;
+        line-height: 0;
+        vertical-align: baseline;
+    }
+
+    .dl, ol, ul {
+        margin-top: 0px;
+        margin-bottom: 1rem;
+    }
+
+    .ol, ul {
+        padding-left: 2rem;
+    }
+
+    sup {
+        top: -0.5em;
+    }
+
+    .odd-name{
+        /* font-size: large; */
+        font-weight: bold
+      }
+
+      .fa-chevron-circle-left:before {
+        content: "\f137";
     }

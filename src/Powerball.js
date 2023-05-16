@@ -108,11 +108,23 @@ const [pickerNumbers2] = useState([
     }
   };
   
-  const emptyBalls = Array.from({ length: 5 - selectedNumbers.length }, (_, index) => (
-    <span className="ball" key={index} id={`selectedBall-${index}`}>
-      <div className="shape"></div>
-    </span>
-  ));
+  const emptyBalls = (
+    <div className="ball-row">
+      {[...Array(5)].map((_, index) => (
+        <span className="ball" key={index} id={`selectedBall-${index}`}>
+          <div className="shape"></div>
+        </span>
+      ))}
+      <div className="plus">
+        <div className="pluss">+</div>
+        <span className="ball" id='single' onClick={handleQuickPick}>
+          <div className="shape">{selectedNumbers.includes('single') ? selectedNumbers[selectedNumbers.indexOf('single')] : ''}</div>
+        </span>
+      </div>
+    </div>
+  );
+  
+  
   
   const pickerBalls = pickerNumbers.map((item) => (
     <span
@@ -234,11 +246,15 @@ const [pickerNumbers2] = useState([
     <div className="lotto">
       <div className="header">
         <div className="buttons">
-          <i className="fas fa-chevron-circle-left back-button"></i>
+            <i>
+            <Link to="/lottoHowTo" className="fas fa-chevron-circle-left back-button" >
+            </Link>  
+            </i>
+          {/* <i className="fas fa-chevron-circle-left back-button"></i> */}
           <i className="fas fa-times exit-button"></i>
         </div>
         <div className='Lotto'>
-          <h1>National Lottery - Lotto</h1>
+          <h1>National Lottery - Powerball</h1>
         </div>
       </div>
       <div className='header__logo'>
@@ -323,13 +339,13 @@ const [pickerNumbers2] = useState([
         </div>
         <div className="row" style={linkStyle5}>
           <div className="col-md-12" style={linkStyle7}>
-          <p style={linkStyle9}>YOU HAVE SELECTED TO PLAY LOTTO</p>
+          <p style={linkStyle9}>YOU HAVE SELECTED TO PLAY POWERBALL</p>
           <span>
-          <Link to="/lottoHowTo" className="btn btn-light" style={{ textDecoration: 'none', color: 'black', backgroundColor: '#e1e2e2', padding: '10px 20px', borderRadius: '5px',borderColor: '#000102', border: '1px solid' }}>
+          <Link to="/PowerballHowTo" className="btn btn-light" style={{ textDecoration: 'none', color: 'black', backgroundColor: '#e1e2e2', padding: '10px 20px', borderRadius: '5px',borderColor: '#000102', border: '1px solid' }}>
             HOW TO PLAY?
           </Link>
 
-          <Link to="/results-Select" className="btn btn-light" style={{ textDecoration: 'none', color: 'black', backgroundColor: '#e1e2e2', padding: '10px 20px', borderRadius: '5px',borderColor: '#000102', border: '1px solid' }}>
+          <Link to="/Results" className="btn btn-light" style={{ textDecoration: 'none', color: 'black', backgroundColor: '#e1e2e2', padding: '10px 20px', borderRadius: '5px',borderColor: '#000102', border: '1px solid' }}>
             RESULTS
           </Link>
           </span>
@@ -369,10 +385,7 @@ const [pickerNumbers2] = useState([
             </div>
           </div>
         </div>
-
-
       </div>
-
       <div className="lotto-desktop-col">
         <div className="selections__cont"> 
           <div className="bet-info2">

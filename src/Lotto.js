@@ -143,10 +143,10 @@ const [pickerNumbers] = useState([
   }
   
   const linkStyle4 = {
-    marginbottom:'2rem',
-    fontsize:'14px',
-    fontweight:'bold', 
-    textalign:'left'
+    marginBottom:'2rem',
+    fontSize:'14px',
+    fontWeight:'bold', 
+    textAlign:'left'
   }
 
   const linkStyle5 = {
@@ -155,19 +155,19 @@ const [pickerNumbers] = useState([
 
   const linkStyle7 = {
     display:'flex', 
-    flexdirection:'column',
-    alignitems:'flex-start', 
-    marginleft:'10px'
+    flexDirection:'column',
+    alignItems:'flex-start', 
+    marginLeft:'10px'
   }
 
   const linkStyle9 = {
     padding:'0',
-    fontsize:'1.22rem'
+    fontize:'1.22rem'
   }
   const linkStyle11 = {
     width:'100%',
     display:'inline-block',
-    textalign:'right'
+    textAlign:'right'
   }
 
   const linkStyle12 = {
@@ -181,7 +181,7 @@ const [pickerNumbers] = useState([
 
   const linkStyle15 = {
     left: '0%',
-    margintop: '0px',
+    marginTop: '0px',
     height: '17px'
 }
 
@@ -296,7 +296,7 @@ const [pickerNumbers] = useState([
             HOW TO PLAY?
           </Link>
 
-          <Link to="/results-Select" className="btn btn-light" style={{ textDecoration: 'none', color: 'black', backgroundColor: '#e1e2e2', padding: '10px 20px', borderRadius: '5px',borderColor: '#000102', border: '1px solid' }}>
+          <Link to="/Results" className="btn btn-light" style={{ textDecoration: 'none', color: 'black', backgroundColor: '#e1e2e2', padding: '10px 20px', borderRadius: '5px',borderColor: '#000102', border: '1px solid' }}>
             RESULTS
           </Link>
           </span>

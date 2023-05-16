@@ -140,7 +140,3 @@ table.table-bordered tbody tr:nth-child(odd) {
     /* font-size: large; */
     font-weight: bold
   }
-
-  .fa-chevron-circle-left:before {
-    content: "\f137";
-}

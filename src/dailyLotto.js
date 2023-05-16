@@ -284,7 +284,7 @@ const [pickerNumbers] = useState([
             HOW TO PLAY?
           </Link>
 
-          <Link to="/results-Select" className="btn btn-light" style={{ textDecoration: 'none', color: 'black', backgroundColor: '#e1e2e2', padding: '10px 20px', borderRadius: '5px',borderColor: '#000102', border: '1px solid' }}>
+          <Link to="/Results" className="btn btn-light" style={{ textDecoration: 'none', color: 'black', backgroundColor: '#e1e2e2', padding: '10px 20px', borderRadius: '5px',borderColor: '#000102', border: '1px solid' }}>
             RESULTS
           </Link>
           </span>

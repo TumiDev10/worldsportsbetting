@@ -3,6 +3,11 @@ import './PowerballHowTo.css';
 import { Link } from 'react-router-dom';
 
 function PowerballHowTo() {
+
+    const linkStyle1 = {
+        fontWeight: '500'
+    }
+
   return (  
       <div id="sp-component" class="col-sm-12 col-md-12">
         <div class="sp-column">
@@ -13,29 +18,29 @@ function PowerballHowTo() {
             </article>
             <div itemprop="articleBody">
                 <div class="page-header">
-                    <h2 class="sportstake8">
-                        <span>Lotto</span>
-                    </h2>
+                    <h3 class="Powerball">
+                        <span>Powerball</span>
+                    </h3>
                 </div>
                 <br></br>
-                <div class="gameWrap sportstake8">
+                <div class="gameWrap Powerball">
                     <div class="header clearFix">
                         <div class="fl">
                             How to play 
-                            <b>Lotto</b>
+                            <b>Powerball</b>
                         </div>
                         <div class="fr">
-                            <Link to="/" className="buttonCustom" style={{ textDecoration: 'none', color: 'black', backgroundColor: 'white', padding: '10px 20px', borderRadius: '5px',borderColor: '#000102', border: '1px solid' }}>
-                            Play Lotto
+                            <Link to="/Powerball" className="buttonCustom" style={{ textDecoration: 'none', color: 'black', backgroundColor: 'white', padding: '10px 20px', borderRadius: '5px',borderColor: '#000102', border: '1px solid' }}>
+                            Play Powerball
                             </Link>
                         </div>
                     </div>
                 </div>
-                <div class="hTPGameWrap hTP-sortstake8">
+                <div class="hTPGameWrap hTP-Powerball">
                         <div class="hTP-desc">
                             <strong>QUICK PICK OPTION:</strong>
                             You can play the LOTTO / 
-                            <strong>LOTTO Plus 1 / LOTTO Plus 2</strong>
+                            <strong> PowerBall / PowerBall Plus </strong>
                             games by choosing a Quick Pick option where the Lottery processing system randomly chooses 6 lucky numbers for you. 
                             <br></br>
                             <br></br>
@@ -50,7 +55,7 @@ function PowerballHowTo() {
                                             <img className='mb-6' src="https://content.nationallottery.co.za/images/siteImg/howPlay/htp-stepIcon1.png" alt=''></img>
                                             <div class="stepNum">1</div>
                                         </div>
-                                        <div class="stepText"> Find a valid LOTTO Betslip. </div>
+                                        <div class="stepText"> Find a valid PowerBall Betslip. </div>
                                     </li>
 
                                     <li class="ul-class">
@@ -59,7 +64,7 @@ function PowerballHowTo() {
                                             <div class="stepNum">2</div>
                                         </div>
                                         <div class="stepText">
-                                             Using a pen / pencil, choose 6 numbers from 1 to 52 numbers on any board by marking your choice of numbers. 
+                                        Using a pen / pencil, choose 5 numbers from 1 to 50 and 1 extra number from 1 to 20.
                                         </div>
                                     </li>
 
@@ -69,7 +74,7 @@ function PowerballHowTo() {
                                             <div class="stepNum">3</div>
                                         </div>
                                         <div class="stepText">
-                                            Take your Betslip to a teller at an approved Lottery retailer to make your payment. 
+                                        Take your Betslip to a teller at an approved Lottery retailer to make your payment.
                                         </div>
                                     </li>
 
@@ -108,24 +113,27 @@ function PowerballHowTo() {
                                 <div class="hTP-panelHeading">Remember:</div>
                                 <div class="hTP-panelBody">
                                     <ul class="bulletList">
-                                        <li>
+                                        <li style={linkStyle1}>
                                              You can play as many boards as you want 
                                         </li>
-                                        <li>
-                                            To Play LOTTO PLUS 2, simply Mark LOTTO PLUS 2 option on your betslip. 
+                                        <br></br>
+                                        <li style={linkStyle1}>
+                                             You can choose a Multi-Draw option which allows you to play the same numbers over multiple draws.
                                         </li>
-                                        <li>
-                                            In order to Play LOTTO PLUS 2, LOTTO and LOTTO PLUS 1 has to be played. 
+                                        <br></br>
+                                        <li style={linkStyle1}>
+                                             A single PowerBall play will cost you R5.00 vat incl.
                                         </li>
-                                        <li>
-                                            You can choose a Multi-Draw option which allows you to play the same numbers over multiple draws. 
+                                        <br></br>
+                                        <li style={linkStyle1}>
+                                             A single cost of PowerBall PLUS will be R2.50 vat incl.
                                         </li>
-                                        <li>
-                                            A single LOTTO play will cost you R5.00 vat incl. A single cost of LOTTO PLUS 1 will be R2.50 and a single cost of LOTTO PLUS 2 will be R2.50 vat incl. 
+                                        <br></br>
+                                        <li style={linkStyle1}>
+                                             Ticket sales close at 8:30pm on any given draw day.
+
                                         </li>
-                                        <li>
-                                             Ticket sales close at 8:30pm on any given draw day. 
-                                        </li>
+                                    
                                     </ul>
                                 </div>
                                 <button onclick="window.open('/ithuba/images/docs/LOTTO-Rules-and-Regs-V11-18320.pdf', '_blank', 'fullscreen=yes'); return false;" class="btnGray"> Rules and regulations </button>
